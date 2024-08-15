@@ -3,7 +3,9 @@
 
 > Uma plataforma central para a comunidade brasileira do Arena Breakout, conectando jogadores e fãs.
 
-[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://github.com/JoaoPster/arenabreakoutbr) [![Public Domain](https://img.shields.io/badge/public-domain-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/) [![Build Status](https://img.shields.io/travis/JoaoPster/arenabreakoutbr.svg)](http://github.com/JoaoPster/arenabreakoutbr)
+[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://github.com/JoaoPster/arenabreakoutbr)
+[![Public Domain](https://img.shields.io/badge/public-domain-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Vercel Status](https://deploy-badge.vercel.app/?url=https://arenabreakoutbr-site.vercel.app/&name=website)]
 
 > O Arena Breakout Brasil é uma iniciativa open source que oferece recursos como gráficos de munição, fórum e integração direta com o Discord. Nossa missão é enriquecer a experiência dos jogadores brasileiros fornecendo uma plataforma de informações e interação comunitária.
 
