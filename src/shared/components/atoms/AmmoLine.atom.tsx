@@ -59,13 +59,17 @@ export const AmmoLine: React.FC<AmmoLineProps> = (props) => {
   return (
     <tr className={styles.ammoLine}>
       <td className={`${styles.cell} ${styles.name}`}>
-        <FaStar
-          className={
-            props.isFavorite ? styles.favoriteIcon : styles.notFavoriteIcon
-          }
-          onClick={handleToggleFavorite}
-        />
-        {props.showFullName ? `${props.Caliber} ${props.Name}` : props.Name}
+        <div className={styles.nameContainer}>
+          <FaStar
+            className={
+              props.isFavorite ? styles.favoriteIcon : styles.notFavoriteIcon
+            }
+            onClick={handleToggleFavorite}
+          />
+          <span className={styles.ammoName}>
+            {props.showFullName ? `${props.Caliber} ${props.Name}` : props.Name}
+          </span>
+        </div>
       </td>
       <td
         className={`${styles.cell} ${styles.statValue} ${getValueClass(

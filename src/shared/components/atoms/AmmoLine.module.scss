@@ -10,7 +10,7 @@
   text-align: center;
   border: 1px solid var(--vulcan-950);
   font-size: 0.9rem;
-  color: #a0a0a0; // Cor mais clara para melhor contraste
+  color: #a0a0a0;
 }
 
 .name {
@@ -18,10 +18,29 @@
   text-align: left;
   font-weight: 700;
   color: var(--tarkov-yellow-100);
+}
 
-  svg {
-    margin-right: 6px;
-  }
+.nameContainer {
+  display: flex;
+  align-items: center;
+}
+
+.ammoName {
+  margin-left: 6px;
+}
+
+.favoriteIcon,
+.notFavoriteIcon {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.favoriteIcon {
+  color: gold;
+}
+
+.notFavoriteIcon {
+  color: gray;
 }
 
 .statValue {
@@ -72,5 +91,14 @@
 
   .name {
     font-size: 0.9rem;
+  }
+
+  .nameContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .ammoName {
+    margin-left: 4px;
   }
 }
