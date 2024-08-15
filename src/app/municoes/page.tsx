@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://i.imgur.com/emZ9jfl.png',
+        url: './opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Arena Breakout Brasil Gráfico de Munição',
