@@ -1,12 +1,28 @@
 'use client';
 
-import Head from 'next/head';
 import { Box, Heading, Input } from '@chakra-ui/react';
 import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { ammoData } from '@/data/ammoData';
 import { useState, useEffect } from 'react';
 import { useGoogleAnalytics } from '@/shared/hooks/ga4';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ArenaBreakoutBR | Gráfico de Munição e Armadura 📊',
+  description:
+    'Arena Breakout: Infinite Gráficos de Munição e Armadura criados por João Pster 🙌',
+  openGraph: {
+    images: [
+      {
+        url: 'https://i.imgur.com/emZ9jfl.png',
+        width: 1200,
+        height: 630,
+        alt: 'Arena Breakout Brasil Gráfico de Munição',
+      },
+    ],
+  },
+};
 
 const Municoes = () => {
   const { sendEvent } = useGoogleAnalytics();
