@@ -6,8 +6,10 @@ import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { ammoData } from '@/data/ammoData';
 import { useState, useEffect } from 'react';
+import { useGoogleAnalytics } from '../hooks/useGoogleAnalytics';
 
 const Municoes = () => {
+  const { sendEvent } = useGoogleAnalytics();
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState<string[]>([]);
   const [collapsedTables, setCollapsedTables] = useState<string[]>([]);
@@ -22,6 +24,10 @@ const Municoes = () => {
       setFavorites(JSON.parse(storedFavorites));
     }
   }, []);
+
+  useEffect(() => {
+    sendEvent('page_view', { page_title: 'Munições' });
+  }, [sendEvent]);
 
   const toggleFavorite = (ammoName: string) => {
     const newFavorites = favorites.includes(ammoName)
