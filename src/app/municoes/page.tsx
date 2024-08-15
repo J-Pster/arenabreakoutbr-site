@@ -5,11 +5,39 @@ import { Box, Heading, Input } from '@chakra-ui/react';
 import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { ammoData } from '@/data/ammoData';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Municoes = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const calibers = [...new Set(ammoData.map((ammo) => ammo.Caliber))];
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [collapsedTables, setCollapsedTables] = useState<string[]>([]);
+  const calibers = [
+    'Favoritos',
+    ...new Set(ammoData.map((ammo) => ammo.Caliber)),
+  ];
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  const toggleFavorite = (ammoName: string) => {
+    const newFavorites = favorites.includes(ammoName)
+      ? favorites.filter((fav) => fav !== ammoName)
+      : [...favorites, ammoName];
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  };
+
+  const toggleCollapse = (caliber: string) => {
+    setCollapsedTables((prev) =>
+      prev.includes(caliber)
+        ? prev.filter((cal) => cal !== caliber)
+        : [...prev, caliber]
+    );
+  };
 
   const filteredAmmoData = ammoData.filter(
     (ammo) =>
@@ -59,9 +87,17 @@ const Municoes = () => {
             <AmmoTable
               key={caliber}
               caliber={caliber}
-              ammoData={filteredAmmoData.filter(
-                (ammo) => ammo.Caliber === caliber
-              )}
+              ammoData={
+                caliber === 'Favoritos'
+                  ? filteredAmmoData.filter((ammo) =>
+                      favorites.includes(`${ammo.Caliber} ${ammo.Name}`)
+                    )
+                  : filteredAmmoData.filter((ammo) => ammo.Caliber === caliber)
+              }
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
+              isCollapsed={collapsedTables.includes(caliber)}
+              toggleCollapse={() => toggleCollapse(caliber)}
             />
           ))}
         </Box>

@@ -1,6 +1,13 @@
 import React from 'react';
 import styles from './AmmoLine.module.scss';
 import { AmmoData } from '@/data/ammoData';
+import { FaStar } from 'react-icons/fa';
+
+interface AmmoLineProps extends AmmoData {
+  isFavorite: boolean;
+  toggleFavorite: () => void;
+  showFullName: boolean;
+}
 
 const getValueClass = (value: number, max: number) => {
   const percentage = (value / max) * 100;
@@ -36,10 +43,18 @@ const getRecoilClass = (value: number | string) => {
   return '';
 };
 
-export const AmmoLine: React.FC<AmmoData> = (props) => {
+export const AmmoLine: React.FC<AmmoLineProps> = (props) => {
   return (
     <tr className={styles.ammoLine}>
-      <td className={`${styles.cell} ${styles.name}`}>{props.Name}</td>
+      <td className={`${styles.cell} ${styles.name}`}>
+        <FaStar
+          className={
+            props.isFavorite ? styles.favoriteIcon : styles.notFavoriteIcon
+          }
+          onClick={props.toggleFavorite}
+        />
+        {props.showFullName ? `${props.Caliber} ${props.Name}` : props.Name}
+      </td>
       <td
         className={`${styles.cell} ${styles.statValue} ${getValueClass(
           Number(props.Damage),

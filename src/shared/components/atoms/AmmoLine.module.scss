@@ -18,6 +18,10 @@
   text-align: left;
   font-weight: 700;
   color: var(--tarkov-yellow-100);
+
+  svg {
+    margin-right: 6px;
+  }
 }
 
 .statValue {
@@ -46,4 +50,27 @@
 
 .negativeValue {
   color: #ff4136;
+}
+
+.favoriteCell {
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  color: gold;
+}
+
+.notFavoriteIcon {
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .cell {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .name {
+    font-size: 0.9rem;
+  }
 }

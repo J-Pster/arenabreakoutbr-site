@@ -5,7 +5,12 @@
   background-color: var(--vulcan-1000);
   color: var(--vanished-white-100);
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+.main {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .header {
@@ -14,7 +19,7 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--tarkov-yellow-100);
   text-transform: uppercase;
@@ -23,7 +28,7 @@
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--tarkov-yellow-50);
 }
 
@@ -45,4 +50,23 @@
 .content {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .searchInput {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 }
