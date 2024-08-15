@@ -1,0 +1,24 @@
+.comparisonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.comparisonCard {
+  background-color: #242424;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 220px;
+
+  .propertyName {
+    color: #ffc107; // Ajuste de acordo com o tema
+  }
+
+  .ammoValue {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AmmoLine } from '../atoms/AmmoLine.atom';
+import { AmmoLine } from '../../atoms/AmmoLine/AmmoLine.atom';
 import styles from './AmmoTable.module.scss';
 import { AmmoData } from '@/data/ammoData';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';

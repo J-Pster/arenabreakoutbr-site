@@ -1,10 +1,13 @@
 'use client';
 
 import { Box, Center, Heading, Input, Spinner } from '@chakra-ui/react';
-import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
+import { AmmoTable } from '@/shared/components/molecules/AmmoTable/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { useState, useEffect, useCallback } from 'react';
 import { useGoogleAnalytics } from '@/shared/hooks/ga4';
+import { AmmoData } from '@/data/ammoData';
+import { AmmoComparison } from '@/shared/components/molecules/AmmoComparison/AmmoComparison.molecule';
+import { AmmoSelector } from '@/shared/components/molecules/AmmoSelector/AmmoSelector.molecule';
 
 interface MunicoesClientProps {
   initialCalibersList: string[];
@@ -15,6 +18,9 @@ const MunicoesClient: React.FC<MunicoesClientProps> = ({
   initialCalibersList,
   initialAmmoData,
 }) => {
+  const [selectedAmmo1, setSelectedAmmo1] = useState<AmmoData | null>(null);
+  const [selectedAmmo2, setSelectedAmmo2] = useState<AmmoData | null>(null);
+
   const { sendEvent } = useGoogleAnalytics();
   const [searchTerm, setSearchTerm] = useState('');
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -54,6 +60,22 @@ const MunicoesClient: React.FC<MunicoesClientProps> = ({
       ammo.Name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleSelectAmmo1 = (ammoName: string) => {
+    setSelectedAmmo1(
+      initialAmmoData.find(
+        (ammo) => `${ammo.Caliber} ${ammo.Name}` === ammoName
+      ) || null
+    );
+  };
+
+  const handleSelectAmmo2 = (ammoName: string) => {
+    setSelectedAmmo2(
+      initialAmmoData.find(
+        (ammo) => `${ammo.Caliber} ${ammo.Name}` === ammoName
+      ) || null
+    );
+  };
+
   if (!isLoaded) {
     return (
       <Center height="100vh" className={styles.loadingContainer}>
@@ -84,6 +106,22 @@ const MunicoesClient: React.FC<MunicoesClientProps> = ({
               ArenaBreakoutBR.com
             </a>
           </Box>
+        </Box>
+
+        <Box>
+          <AmmoSelector
+            ammoData={initialAmmoData}
+            label="Select Ammo 1"
+            onChange={handleSelectAmmo1}
+          />
+          <AmmoSelector
+            ammoData={initialAmmoData}
+            label="Select Ammo 2"
+            onChange={handleSelectAmmo2}
+          />
+          {selectedAmmo1 && selectedAmmo2 && (
+            <AmmoComparison ammo1={selectedAmmo1} ammo2={selectedAmmo2} />
+          )}
         </Box>
 
         <Box className={styles.content}>
