@@ -53,7 +53,7 @@ $ yarn dev
 
 ## Tarefas Pendentes :man:
 
-- [x] Conexão com o Discord
+- [ ] Conexão com o Discord
 - [ ] Implementação do fórum
 - [ ] Adição de novas funcionalidades
 
