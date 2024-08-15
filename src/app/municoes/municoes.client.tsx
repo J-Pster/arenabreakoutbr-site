@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Heading, Input } from '@chakra-ui/react';
+import { Box, Center, Heading, Input, Spinner } from '@chakra-ui/react';
 import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { useState, useEffect, useCallback } from 'react';
@@ -55,7 +55,14 @@ const MunicoesClient: React.FC<MunicoesClientProps> = ({
   );
 
   if (!isLoaded) {
-    return <Box>Carregando...</Box>;
+    return (
+      <Center height="100vh" className={styles.loadingContainer}>
+        <Spinner size="xl" color="yellow.500" thickness="4px" />
+        <Box ml={4} fontSize="2xl" fontWeight="bold" color="yellow.500">
+          Carregando...
+        </Box>
+      </Center>
+    );
   }
 
   return (
