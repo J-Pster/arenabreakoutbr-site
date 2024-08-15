@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Arena Breakout Brasil Gráfico de Munição',
+        type: 'image/png',
       },
     ],
   },
