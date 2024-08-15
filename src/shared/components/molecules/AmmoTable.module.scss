@@ -1,8 +1,5 @@
-.ammoTable {
-  width: 100%;
-  border-collapse: collapse;
+.ammoTableContainer {
   margin-bottom: 1rem;
-  background-color: var(--vulcan-900);
 }
 
 .tableHeader {
@@ -11,11 +8,24 @@
   font-weight: 700;
   text-transform: uppercase;
   padding: 0.5rem;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
 
-  span {
-    margin-right: 8px;
-  }
+.caliber {
+  font-size: 1.1rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.ammoTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--vulcan-900);
 }
 
 .tableHeaderCell {
@@ -23,9 +33,57 @@
   text-align: center;
   border: 1px solid var(--vulcan-950);
   font-size: 0.9rem;
+  background-color: var(--vulcan-850);
+  color: var(--tarkov-yellow-100);
 }
 
-.caliber {
-  text-align: left;
-  font-size: 1.1rem;
+.stickyColumn {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: var(--vulcan-900);
+}
+
+.tableHeaderCell.stickyColumn {
+  z-index: 3;
+  background-color: var(--vulcan-850);
+}
+
+/* Estilizando a barra de rolagem para navegadores WebKit (Chrome, Safari) */
+.tableWrapper::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem */
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: var(
+    --vulcan-850
+  ); /* Cor de fundo da trilha da barra de rolagem */
+  border-radius: 6px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background-color: var(--tarkov-yellow-100); /* Cor da barra de rolagem */
+  border-radius: 6px;
+  border: 3px solid var(--vulcan-850); /* Cor de fundo da trilha da barra de rolagem */
+}
+
+/* Estilizando a barra de rolagem para Firefox */
+.tableWrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tarkov-yellow-100) var(--vulcan-850);
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ammoTable {
+    min-width: 1000px; // Ajuste este valor conforme necessário
+  }
+
+  .stickyColumn {
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
 }

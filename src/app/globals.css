@@ -88,6 +88,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--tarkov-yellow-100) var(--vulcan-850);
 }
 
 html,
@@ -115,4 +118,20 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Estilizando a barra de rolagem para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vulcan-850); /* Cor de fundo da trilha da barra de rolagem */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--tarkov-yellow-100); /* Cor da barra de rolagem */
+  border-radius: 6px;
+  border: 3px solid var(--vulcan-850); /* Cor de fundo da trilha da barra de rolagem */
 }

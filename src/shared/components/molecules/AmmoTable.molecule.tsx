@@ -22,50 +22,52 @@ export const AmmoTable: React.FC<AmmoTableProps> = ({
   toggleCollapse,
 }) => {
   return (
-    <table className={styles.ammoTable}>
-      <thead>
-        <tr>
-          <th
-            colSpan={13}
-            className={styles.tableHeader}
-            onClick={toggleCollapse}
-          >
-            <span className={styles.caliber}>{caliber}</span>
-            {isCollapsed ? <FaChevronDown /> : <FaChevronUp />}
-          </th>
-        </tr>
-        {!isCollapsed && (
-          <tr>
-            <th className={styles.tableHeaderCell}>Nome</th>
-            <th className={styles.tableHeaderCell}>Dano</th>
-            <th className={styles.tableHeaderCell}>Penetração</th>
-            <th className={styles.tableHeaderCell}>Nível de Perfuração</th>
-            <th className={styles.tableHeaderCell}>Dano à Armadura</th>
-            <th className={styles.tableHeaderCell}>Velocidade (m/s)</th>
-            <th className={styles.tableHeaderCell}>Precisão</th>
-            <th className={styles.tableHeaderCell}>Recuo V.</th>
-            <th className={styles.tableHeaderCell}>Recuo H.</th>
-            <th className={styles.tableHeaderCell}>Chance de Ferimento</th>
-            <th className={styles.tableHeaderCell}>Alcance Extra</th>
-            <th className={styles.tableHeaderCell}>Dreno de Stamina</th>
-          </tr>
-        )}
-      </thead>
+    <div className={styles.ammoTableContainer}>
+      <div className={styles.tableHeader} onClick={toggleCollapse}>
+        <span className={styles.caliber}>{caliber}</span>
+        {isCollapsed ? <FaChevronDown /> : <FaChevronUp />}
+      </div>
       {!isCollapsed && (
-        <tbody>
-          {ammoData.map((ammo, index) => (
-            <AmmoLine
-              key={index}
-              {...ammo}
-              isFavorite={favorites.includes(`${ammo.Caliber} ${ammo.Name}`)}
-              toggleFavorite={() =>
-                toggleFavorite(`${ammo.Caliber} ${ammo.Name}`)
-              }
-              showFullName={caliber === 'Favoritos'}
-            />
-          ))}
-        </tbody>
+        <div className={styles.tableWrapper}>
+          <table className={styles.ammoTable}>
+            <thead>
+              <tr>
+                <th
+                  className={`${styles.tableHeaderCell} ${styles.stickyColumn}`}
+                >
+                  Nome
+                </th>
+                <th className={styles.tableHeaderCell}>Dano</th>
+                <th className={styles.tableHeaderCell}>Penetração</th>
+                <th className={styles.tableHeaderCell}>Nível de Perfuração</th>
+                <th className={styles.tableHeaderCell}>Dano à Armadura</th>
+                <th className={styles.tableHeaderCell}>Velocidade (m/s)</th>
+                <th className={styles.tableHeaderCell}>Precisão</th>
+                <th className={styles.tableHeaderCell}>Recuo V.</th>
+                <th className={styles.tableHeaderCell}>Recuo H.</th>
+                <th className={styles.tableHeaderCell}>Chance de Ferimento</th>
+                <th className={styles.tableHeaderCell}>Alcance Extra</th>
+                <th className={styles.tableHeaderCell}>Dreno de Stamina</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ammoData.map((ammo, index) => (
+                <AmmoLine
+                  key={index}
+                  {...ammo}
+                  isFavorite={favorites.includes(
+                    `${ammo.Caliber} ${ammo.Name}`
+                  )}
+                  toggleFavorite={() =>
+                    toggleFavorite(`${ammo.Caliber} ${ammo.Name}`)
+                  }
+                  showFullName={caliber === 'Favoritos'}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
-    </table>
+    </div>
   );
 };
