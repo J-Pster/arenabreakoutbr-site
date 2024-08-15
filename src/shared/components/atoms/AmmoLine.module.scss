@@ -63,6 +63,42 @@
   background-color: inherit;
 }
 
+.lowValue {
+  color: #ff4136;
+}
+
+.mediumValue {
+  color: #ffdc00;
+}
+
+.highValue {
+  color: #2ecc40;
+}
+
+.neutralValue {
+  color: #808080;
+}
+
+.positiveValue {
+  color: #2ecc40;
+}
+
+.negativeValue {
+  color: #ff4136;
+}
+
+.favoriteCell {
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  color: gold;
+}
+
+.notFavoriteIcon {
+  color: gray;
+}
+
 @media (max-width: 768px) {
   .cell {
     padding: 0.3rem;
