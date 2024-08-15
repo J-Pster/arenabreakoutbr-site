@@ -6,7 +6,7 @@ import { AmmoTable } from '@/shared/components/molecules/AmmoTable.molecule';
 import styles from './municoes.module.scss';
 import { ammoData } from '@/data/ammoData';
 import { useState, useEffect } from 'react';
-import { useGoogleAnalytics } from '../hooks/useGoogleAnalytics';
+import { useGoogleAnalytics } from '@/shared/hooks/ga4';
 
 const Municoes = () => {
   const { sendEvent } = useGoogleAnalytics();
@@ -53,16 +53,6 @@ const Municoes = () => {
 
   return (
     <Box className={styles.container}>
-      <Head>
-        <title>ArenaBreakoutBR | Gráfico de Munição e Armadura 📊</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:image" content="https://i.imgur.com/emZ9jfl.png" />
-        <meta
-          name="description"
-          content="Arena Breakout: Infinite Gráficos de Munição e Armadura criados por João Pster 🙌"
-        />
-      </Head>
-
       <main>
         <Box className={styles.header}>
           <Heading as="h1" className={styles.title}>
