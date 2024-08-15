@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+.container {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: var(--vulcan-1000);
+  color: var(--vanished-white-100);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tarkov-yellow-100);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--tarkov-yellow-50);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--vulcan-900);
+  border: 1px solid var(--vulcan-800);
+  color: var(--tarkov-yellow-100);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+
+  &::placeholder {
+    color: var(--tarkov-yellow-50);
+  }
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}

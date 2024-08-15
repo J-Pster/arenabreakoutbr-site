@@ -38,6 +38,17 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --vulcan-800: #383932;
+  --vulcan-850: #232321;
+  --vulcan-900: #131312;
+  --vulcan-950: #191c1c;
+  --vulcan-1000: #131313;
+  --vulcan-1050: #101010;
+  --tarkov-yellow-10: #55877f70;
+  --tarkov-yellow-50: #877f70;
+  --tarkov-yellow-100: #dbc59c;
+  --vanished-white-100: #4d5154;
 }
 
 @media (prefers-color-scheme: dark) {
